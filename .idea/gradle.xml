@@ -10,6 +10,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Currencies" />
+            <option value="$PROJECT_DIR$/Currencies/data" />
+            <option value="$PROJECT_DIR$/Currencies/domain" />
+            <option value="$PROJECT_DIR$/Currencies/presentation" />
+            <option value="$PROJECT_DIR$/Currencies/ui" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/compose-root" />
             <option value="$PROJECT_DIR$/compose-utils" />
