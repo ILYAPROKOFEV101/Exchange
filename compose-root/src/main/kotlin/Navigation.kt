@@ -11,16 +11,20 @@ import kotlinx.coroutines.launch
 
 
 @Composable
-fun Navigation(navController: NavHostController) {
-
+fun NavigationScreen(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = NavigationTree.Screen.Currencies
+        startDestination = NavigationTree.Currencies.route
     ) {
-
-
-
-
+        composable(NavigationTree.Currencies.route) {
+            CurrencyListContent()
+        }
+        composable(NavigationTree.Exchange.route) {
+            // Добавьте экран обмена валют
+        }
+        composable(NavigationTree.Transactions.route) {
+            // Добавьте экран транзакций
+        }
     }
 }
 

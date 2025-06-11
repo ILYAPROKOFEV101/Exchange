@@ -12,19 +12,40 @@ plugins {
 
 android {
     namespace = "com.ilya.core"
-    compileSdk = 34 // или другая актуальная версия SDK
+    compileSdk = 35 // или другая актуальная версия SDK
 
     defaultConfig {
-        minSdk = 21 // минимальная версия SDK
-        targetSdk = 34 // целевая версия SDK
+        minSdk = 24
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+    buildFeatures {
+        compose = true
+        viewBinding = true
+    }
     room {
         schemaDirectory("$projectDir/schemas")
     }
+}
 
-
-    }
 
 dependencies {
 

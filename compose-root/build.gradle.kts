@@ -34,9 +34,19 @@ android {
 
 dependencies {
 
-
+    implementation(project(":Currencies:ui"))
     implementation(libs.androidx.navigation.compose.v290)
+    // AndroidX Compose BOM (Bill of Materials)
+    implementation(libs.androidx.compose.bom.v20250600)
 
+    // Core Compose UI
+    implementation(libs.ui)
+
+    // Material 3 for Compose
+    implementation(libs.material3)
+
+    // Runtime for Compose
+    implementation(libs.androidx.runtime)
 
 
 }

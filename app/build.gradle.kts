@@ -118,4 +118,8 @@ dependencies {
     implementation(project(":compose-utils"))
     implementation(project(":compose-root"))
 
+    implementation(libs.androidx.navigation.compose.v290)
+    implementation(project(":Currencies:ui"))
+
+
 }

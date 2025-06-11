@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.ilya.ui.test.ui-mergeDebugAndroidTestResources-61:/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/ilyaprokofev/.gradle/caches/8.9/transforms/d96902d55997d057a091d81ba90e91d6/transformed/appcompat-1.7.0/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}
