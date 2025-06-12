@@ -1,10 +1,10 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
+    id("com.android.library")
+    kotlin("android")
 }
 
 android {
-    namespace = "com.ilyamylibrary"
+    namespace = "com.ilya.compose_root"
     compileSdk = 35
 
     defaultConfig {
@@ -33,7 +33,6 @@ android {
 }
 
 dependencies {
-
     implementation(project(":Currencies:ui"))
     implementation(libs.androidx.navigation.compose.v290)
     // AndroidX Compose BOM (Bill of Materials)
@@ -47,6 +46,4 @@ dependencies {
 
     // Runtime for Compose
     implementation(libs.androidx.runtime)
-
-
 }

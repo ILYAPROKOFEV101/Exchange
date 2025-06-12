@@ -11,7 +11,6 @@ android {
         minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -33,6 +32,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":compose-utils"))
+    implementation(project(":core"))
+
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

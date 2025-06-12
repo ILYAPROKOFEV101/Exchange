@@ -1,6 +1,7 @@
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,48 +23,28 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.foundation.lazy.items
 
 @Composable
-fun CurrencyListContent() {
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        item {
+fun CurrencyListContent(
+    viewModel: CurrencyViewModel = viewModel()
+) {
+    val selectedCurrency by viewModel.selectedCurrency.collectAsState()
+    val rates by viewModel.rates.collectAsState()
+
+    LazyColumn {
+        items(rates) { rate ->
             CurrencyItem(
-                flagResId = R.drawable.images,
-                currencyCode = "USD",
-                currencyName = "US Dollar",
-                balance = "$143,44",
-                exchangeRate = "$1"
-            )
-        }
-        item {
-            CurrencyItem(
-                flagResId = R.drawable.images,
-                currencyCode = "EUR",
-                currencyName = "Euro",
-                balance = "€512,29",
-                exchangeRate = "€0,88033"
-            )
-        }
-        item {
-            CurrencyItem(
-                flagResId = R.drawable.images,
-                currencyCode = "GBP",
-                currencyName = "Great Britain Pound",
-                balance = "£512,29",
-                exchangeRate = "£0,74279"
-            )
-        }
-        item {
-            CurrencyItem(
-                flagResId = R.drawable.images,
-                currencyCode = "RUB",
-                currencyName = "Russia Rouble",
-                balance = "₽43.788,11",
-                exchangeRate = "₽78,66135"
+                flagResId = getFlagResource(rate.currency),
+                currencyCode = rate.currency,
+                currencyName = getCurrencyName(rate.currency),
+                balance = formatBalance(rate.value),
+                exchangeRate = formatExchangeRate(rate.value, rate.currency == selectedCurrency),
+                onClick = { viewModel.selectCurrency(rate.currency) }
             )
         }
     }
@@ -75,14 +56,16 @@ fun CurrencyItem(
     currencyCode: String,
     currencyName: String,
     balance: String,
-    exchangeRate: String
+    exchangeRate: String,
+    onClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp)
             .background(Color.White)
-            .border(width = 1.dp, color = Color.LightGray),
+            .border(width = 1.dp, color = Color.LightGray)
+            .clickable(onClick = onClick),
         verticalAlignment = Alignment.CenterVertically
     ) {
         // Флаг
@@ -91,7 +74,7 @@ fun CurrencyItem(
             contentDescription = null,
             modifier = Modifier.run {
                 size(40.dp)
-                        .padding(8.dp)
+                    .padding(8.dp)
             }
         )
 
@@ -124,3 +107,31 @@ fun CurrencyItem(
     }
 }
 
+// Вспомогательные функции
+private fun getFlagResource(currencyCode: String): Int {
+    return when (currencyCode) {
+        "USD" -> R.drawable.usd_flag
+        "EUR" -> R.drawable.eur_flag
+        "GBP" -> R.drawable.gbp_flag
+        "RUB" -> R.drawable.rub_flag
+        else -> R.drawable.default_flag
+    }
+}
+
+private fun getCurrencyName(currencyCode: String): String {
+    return when (currencyCode) {
+        "USD" -> "US Dollar"
+        "EUR" -> "Euro"
+        "GBP" -> "Great Britain Pound"
+        "RUB" -> "Russia Rouble"
+        else -> "Unknown Currency"
+    }
+}
+
+private fun formatBalance(value: Double): String {
+    return "%.2f".format(value)
+}
+
+private fun formatExchangeRate(value: Double, isSelected: Boolean): String {
+    return if (isSelected) "1" else "%.5f".format(value)
+}

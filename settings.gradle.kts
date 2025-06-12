@@ -21,7 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "CurrencyConverter"
 include(":app")
-include(":compose-root")
 include(":compose-utils")
 include(":core")
 include(":Currencies")
@@ -29,3 +28,5 @@ include(":Currencies:ui")
 include(":Currencies:presentation")
 include(":Currencies:domain")
 include(":Currencies:data")
+include(":compose-root")
+include(":CoreDB")

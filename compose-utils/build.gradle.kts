@@ -33,6 +33,11 @@ android {
 }
 
 dependencies {
+
+    implementation ("androidx.compose.ui:ui:")
+    implementation ("androidx.compose.material3:material3:")
+    implementation ("androidx.compose.runtime:runtime:")
+
     // AndroidX Compose BOM (Bill of Materials)
     implementation(platform("androidx.compose:compose-bom:2025.06.00"))
 

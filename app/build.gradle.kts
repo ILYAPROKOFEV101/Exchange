@@ -117,9 +117,12 @@ dependencies {
 
     implementation(project(":compose-utils"))
     implementation(project(":compose-root"))
+    implementation(project(":Currencies:ui"))
+    implementation(project(":Currencies:presentation"))
+
 
     implementation(libs.androidx.navigation.compose.v290)
-    implementation(project(":Currencies:ui"))
+    implementation(kotlin("test"))
 
 
 }

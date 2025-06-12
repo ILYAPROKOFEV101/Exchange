@@ -10,6 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CoreDB" />
             <option value="$PROJECT_DIR$/Currencies" />
             <option value="$PROJECT_DIR$/Currencies/data" />
             <option value="$PROJECT_DIR$/Currencies/domain" />
