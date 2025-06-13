@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -9,7 +10,16 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CoreDB" />
+            <option value="$PROJECT_DIR$/Currencies" />
+            <option value="$PROJECT_DIR$/Currencies/data" />
+            <option value="$PROJECT_DIR$/Currencies/domain" />
+            <option value="$PROJECT_DIR$/Currencies/presentation" />
+            <option value="$PROJECT_DIR$/Currencies/ui" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/compose-root" />
+            <option value="$PROJECT_DIR$/compose-utils" />
+            <option value="$PROJECT_DIR$/core" />
           </set>
         </option>
       </GradleProjectSettings>

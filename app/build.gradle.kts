@@ -114,4 +114,15 @@ dependencies {
     testImplementation("org.mockito.kotlin:mockito-kotlin:5.4.0")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
+
+    implementation(project(":compose-utils"))
+    implementation(project(":compose-root"))
+    implementation(project(":Currencies:ui"))
+    implementation(project(":Currencies:presentation"))
+
+
+    implementation(libs.androidx.navigation.compose.v290)
+    implementation(kotlin("test"))
+
+
 }
